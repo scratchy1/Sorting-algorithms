@@ -1,0 +1,56 @@
+public class Arraysort1 {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        // Einen double-Array erzeugen, der genauso gross
+        // ist wie der String-Array args
+
+        if (args.length != 0) {
+            double[] feld = new double[args.length];
+            // alle Zahlen, die in args als Strings
+            // vorliegen, in double-Werte umwandeln
+            // und in den Array feld eintragen
+            for (int i = 0; i < args.length; i++) {
+                try {
+                    feld[i] = Double.parseDouble(args[i]);
+                } catch (NumberFormatException e) {
+                    System.out.println("string does not contain parsable double");
+                    return;
+                } catch (NullPointerException e) {
+                    System.out.println("String is null");
+                    return;
+                }
+
+            }
+
+            // Hier Programmcode zum Sortieren einfuegen
+            boolean switched;
+            do {
+                switched = false;
+
+                for (int i = 0; i < args.length - 1; i++) {
+                    double temp;
+                    if (feld[i] < feld[i + 1]) {
+                        temp = feld[i];
+                        feld[i] = feld[i + 1];
+                        feld[i + 1] = temp;
+                        switched = true;
+                    }
+
+                }
+
+            } while (switched == true);
+            // Hier Programmcode zur Bestimmung und
+            // Ausgabe des groessten Elements einfuegen
+
+            System.out.println(feld[0] + "Maximum");
+            // den Inhalt des Arrays feld ausgeben
+            for (int i = 0; i < args.length; i = i + 1) {
+                System.out.println(" " + feld[i]);
+            }
+        } else {
+            return;
+        }
+
+    }
+}

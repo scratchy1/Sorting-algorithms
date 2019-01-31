@@ -1,0 +1,36 @@
+public class SimpleSort {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+        // Einen double-Array erzeugen, der genauso gross ist
+        // wie der String-Array args.
+        double[] feld = new double[args.length];
+        // Alle Zahlen, die in args als Strings vorliegen,
+        // in double-Werte umwandeln und in den Array feld eintragen.
+        for (int i = 0; i < args.length; i = i + 1) {
+            feld[i] = Double.parseDouble(args[i]);
+        }
+        // Array absteigend sortieren
+        for (int i = 0; i < args.length - 1; i = i + 1) {
+            int max = i;
+            for (int j = i + 1; j < args.length; j = j + 1) {
+                if (feld[j] > feld[max]) {
+                    max = j;
+                }
+            }
+            double h = feld[i];
+            feld[i] = feld[max];
+            feld[max] = h;
+
+        }
+        // Ausgabe des groessten uebergebenen Wertes.
+        // Wir gehen bei dieser Loesung davon aus, dass
+        // mindestens ein Argument uebergeben wird.
+        System.out.println("Das groesste Element ist " + feld[0]);
+        // Den Inhalt des Arrays feld ausgeben
+        for (int i = 0; i < args.length; i = i + 1) {
+            System.out.println(i + ". " + feld[i]);
+        }
+    }
+}
